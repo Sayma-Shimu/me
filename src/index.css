@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.profile-blob {
+  background: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+  position: relative;
+  z-index: 10;
+}
+
+.profile-blob::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(135deg, #6366f1, #ec4899);
+  border-radius: inherit;
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0.5;
+}
+
+.profile-blob:hover {
+  border-radius: 50%;
+  transform: scale(1.02) rotate(2deg);
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #6366f1, #ec4899);
+  border-radius: 20px;
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+}
+
+.dark .glass-nav {
+  background: rgba(5, 5, 8, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #6366f1, #ec4899, #a855f7);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: gradientMove 5s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #6366f1, #ec4899);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 80%;
+}
+
+.card-gradient-border {
+  position: relative;
+  background: #ffffff;
+  z-index: 1;
+}
+
+.dark .card-gradient-border {
+  background: #1e293b;
+}
+
+.card-gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  background: linear-gradient(45deg, #6366f1, #ec4899, #a855f7);
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-gradient-border:hover::before {
+  opacity: 1;
+}
+
+.custom-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -30;
+  background: linear-gradient(135deg, #eef2ff 0%, #f3e8ff 50%, #fce7f3 100%);
+  transition: background 0.7s ease;
+}
+
+.dark .custom-bg {
+  background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e1b4b 100%);
+}
+
+.mesh-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -25;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.mesh-blob {
+  position: absolute;
+  filter: blur(90px);
+  opacity: 0.5;
+  border-radius: 50%;
+  animation: dew-move 20s infinite ease-in-out alternate;
+}
+
+.mesh-1 { 
+  background: rgba(99, 102, 241, 0.2); 
+  width: 60vw; 
+  height: 60vw; 
+  top: -10%; 
+  left: -10%; 
+}
+
+.mesh-2 { 
+  background: rgba(236, 72, 153, 0.15); 
+  width: 50vw; 
+  height: 50vw; 
+  bottom: -10%; 
+  right: -10%; 
+  animation-delay: -5s; 
+}
+
+.mesh-3 { 
+  background: rgba(168, 85, 247, 0.15); 
+  width: 40vw; 
+  height: 40vw; 
+  top: 30%; 
+  right: 20%; 
+  animation-delay: -10s; 
+}
+
+.dark .mesh-1 { 
+  background: rgba(99, 102, 241, 0.15); 
+  opacity: 0.3; 
+}
+
+.dark .mesh-2 { 
+  background: rgba(236, 72, 153, 0.1); 
+  opacity: 0.25; 
+}
+
+.dark .mesh-3 { 
+  background: rgba(168, 85, 247, 0.1); 
+  opacity: 0.25; 
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.dark .glass-card {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
